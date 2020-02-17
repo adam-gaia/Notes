@@ -4,11 +4,9 @@
 # --------------------------------------------------------------------------------
 # Variables
 # --------------------------------------------------------------------------------
-
 # Save var with special characters
 x=$'asdf\nasdf\n' # '\n' is evaluated as a new line
 x='asdf\nasdf\n'  # '\n' is evaluated literally
-
 
 # Split string into array on new line
 input=$'line1\nline2'
@@ -18,7 +16,6 @@ readarray -t array <<<"$input"
 # --------------------------------------------------------------------------------
 # For each loops
 # --------------------------------------------------------------------------------
-
 # For each var in array
 declare -a array # Must declare the variable to be an array
 array=('1' '2' '3' '4' 'vars can have spaces')
@@ -36,7 +33,6 @@ done
 # --------------------------------------------------------------------------------
 # System
 # --------------------------------------------------------------------------------
-
 # Mac or Linux or Cygwin
 unameOut="$(uname -s)"
 case "${unameOut}" in
@@ -74,11 +70,9 @@ set -E # Error traps inherited by functions
 set -C  # Disallow existing regular files to be overwritten by redirection of output.
 
 
-
 # --------------------------------------------------------------------------------
 # Read user input
 # --------------------------------------------------------------------------------
-
 # Pipe input to bash function
 readInputFromPipe()
 {
@@ -89,6 +83,7 @@ readInputFromPipe()
     done
 }
 
+
 # --------------------------------------------------------------------------------
 # Job control
 # --------------------------------------------------------------------------------
@@ -96,7 +91,6 @@ ctrl-z # Suspend current running job
 jobs # Show all jobs
 fg # Start up the last paused job
 fg %JOBNUM # Start specific paused job
-
 exampleprogram & # ‘&’ sends a job to run in the background
 wait # wait for all background jobs to finish
 kill %JOBNUM #kill job by number
