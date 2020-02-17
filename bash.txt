@@ -1,5 +1,5 @@
-#!/usr/bin/env bash
 # Bash notes
+# TODO: Alphabetize sections. Add table of contents
 
 # --------------------------------------------------------------------------------
 # Variables
@@ -67,14 +67,10 @@ shopt -q login_shell && echo 'Login shell' || echo 'Not login shell'
 set -e # Scripts will fail as soon as any command fails
 #   Conditional statements with '[[ ]]', ||' or '&&' wont trigger exiting
 #   Use 'command || true' if we don't want a failing command to cause an exit
-
 set -o pipefail # Pipes will fail if any fail, instead of just the last one
-
 set -u # Unset vars cause errors
 #   Using [[ -z "${possbileUnsetVar}" ]] to check for an unset var wont cause script to fail
-
 set -E # Error traps inherited by functions
-
 set -C  # Disallow existing regular files to be overwritten by redirection of output.
 
 
@@ -93,6 +89,17 @@ readInputFromPipe()
     done
 }
 
+# --------------------------------------------------------------------------------
+# Job control
+# --------------------------------------------------------------------------------
+ctrl-z # Suspend current running job
+jobs # Show all jobs
+fg # Start up the last paused job
+fg %JOBNUM # Start specific paused job
+
+exampleprogram & # ‘&’ sends a job to run in the background
+wait # wait for all background jobs to finish
+kill %JOBNUM #kill job by number
 
 
 
