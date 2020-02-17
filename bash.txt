@@ -103,6 +103,15 @@ wait # wait for all background jobs to finish
 kill %JOBNUM #kill job by number
 
 
+# --------------------------------------------------------------------------------
+# Output redirection
+# --------------------------------------------------------------------------------
+echo "asdf" 2>&1 # Redirect stderr to stdout
+echo "error" 1>&2 # Send stdout to stderr
+echo "asdf" file.txt # Redirect stderr and stdout to file
+echo "asdf" 2> error.log # Redirect stderr to file
+echo "asdf" |& tee log.txt # Send stdout and stderr to both console and file
+
 
 
 
