@@ -52,7 +52,7 @@ echo "${machine}"
 
 
 # --------------------------------------------------------------------------------
-# Shell
+# Meta info
 # --------------------------------------------------------------------------------
 # Check if interactive shell
 [[ $- == *i* ]] && echo 'Interactive' || echo 'Not interactive (script)'
@@ -64,22 +64,34 @@ shopt -q login_shell && echo 'Login shell' || echo 'Not login shell'
 # Set
 #     https://vaneyckt.io/posts/safer_bash_scripts_with_set_euxo_pipefail/
 # --------------------------------------------------------------------------------
-# set -e # Scripts will fail as soon as any command fails
-#    Conditional statements with '[[ ]]', ||' or '&&' wont trigger exiting
-#    Use 'command || true' if we don't want a failing command to cause an exit
-#
-# set -o pipefail # Pipes will fail if any fail, instead of just the last one
-#
-# set -u # Unset vars cause errors
-#    Using [[ -z "${possbileUnsetVar}" ]] to check for an unset var wont cause script to fail
-#
-# set -E # Error traps inherited by functions
-#
-# set -C  Disallow existing regular files to be overwritten by redirection of output.
-#
+set -e # Scripts will fail as soon as any command fails
+#   Conditional statements with '[[ ]]', ||' or '&&' wont trigger exiting
+#   Use 'command || true' if we don't want a failing command to cause an exit
+
+set -o pipefail # Pipes will fail if any fail, instead of just the last one
+
+set -u # Unset vars cause errors
+#   Using [[ -z "${possbileUnsetVar}" ]] to check for an unset var wont cause script to fail
+
+set -E # Error traps inherited by functions
+
+set -C  # Disallow existing regular files to be overwritten by redirection of output.
 
 
 
+# --------------------------------------------------------------------------------
+# Read user input
+# --------------------------------------------------------------------------------
+
+# Pipe input to bash function
+readInputFromPipe()
+{
+    # Call with 'echo "asdf |readInputFromPipe'
+
+    while IFS= read -r line; do # 'IFS=' preserves leading whitespace
+        echo -en "${line}"
+    done
+}
 
 
 
