@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 # Bash notes
 # TODO: Alphabetize sections. Add table of contents
 
@@ -57,7 +58,7 @@ shopt -q login_shell && echo 'Login shell' || echo 'Not login shell'
 
 
 # --------------------------------------------------------------------------------
-# Set
+# Set and Shopt
 #     https://vaneyckt.io/posts/safer_bash_scripts_with_set_euxo_pipefail/
 # --------------------------------------------------------------------------------
 set -e # Scripts will fail as soon as any command fails
@@ -68,6 +69,12 @@ set -u # Unset vars cause errors
 #   Using [[ -z "${possbileUnsetVar}" ]] to check for an unset var wont cause script to fail
 set -E # Error traps inherited by functions
 set -C  # Disallow existing regular files to be overwritten by redirection of output.
+set -x # print commands before executing
+
+shopt -s shift_verbose # Shift builtin prints an error message when the shift count exceeds the number of positional parameters
+shopt -s extdebug # See https://www.gnu.org/software/bash/manual/html_node/The-Shopt-Builtin.html
+
+set -Eeuxo pipefail; shopt -s shift_verbose extdebug # Use in all bash scripts for safety 
 
 
 # --------------------------------------------------------------------------------
