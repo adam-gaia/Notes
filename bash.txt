@@ -1,0 +1,88 @@
+#!/usr/bin/env bash
+# Bash notes
+
+# --------------------------------------------------------------------------------
+# Variables
+# --------------------------------------------------------------------------------
+
+# Save var with special characters
+x=$'asdf\nasdf\n' # '\n' is evaluated as a new line
+x='asdf\nasdf\n'  # '\n' is evaluated literally
+
+
+# Split string into array on new line
+input=$'line1\nline2'
+readarray -t array <<<"$input"
+
+
+# --------------------------------------------------------------------------------
+# For each loops
+# --------------------------------------------------------------------------------
+
+# For each var in array
+declare -a array # Must declare the variable to be an array
+array=('1' '2' '3' '4' 'vars can have spaces')
+for var in "${array[@]}"; do # Must have quotes, otherwise vars with spaces will be separated into multiple fields
+    echo "${var}"
+done
+
+# For each whilespace-separated segment in string
+string='1 2 3 4 5 spaces separate fields'
+for var in ${string}; do # Do NOT use quotes, otherwise the entire string will be read as one field
+    echo "${var}"
+done
+
+
+# --------------------------------------------------------------------------------
+# System
+# --------------------------------------------------------------------------------
+
+# Mac or Linux or Cygwin
+unameOut="$(uname -s)"
+case "${unameOut}" in
+    Linux*)     machine=Linux
+    ;;
+    Darwin*)    machine=Mac
+    ;;
+    CYGWIN*)    machine=Cygwin
+    ;;
+    *)          machine="UNKNOWN:${unameOut}"
+esac
+echo "${machine}"
+
+
+# --------------------------------------------------------------------------------
+# Shell
+# --------------------------------------------------------------------------------
+# Check if interactive shell
+[[ $- == *i* ]] && echo 'Interactive' || echo 'Not interactive (script)'
+# Check if login shell
+shopt -q login_shell && echo 'Login shell' || echo 'Not login shell'
+
+
+# --------------------------------------------------------------------------------
+# Set
+#     https://vaneyckt.io/posts/safer_bash_scripts_with_set_euxo_pipefail/
+# --------------------------------------------------------------------------------
+# set -e # Scripts will fail as soon as any command fails
+#    Conditional statements with '[[ ]]', ||' or '&&' wont trigger exiting
+#    Use 'command || true' if we don't want a failing command to cause an exit
+#
+# set -o pipefail # Pipes will fail if any fail, instead of just the last one
+#
+# set -u # Unset vars cause errors
+#    Using [[ -z "${possbileUnsetVar}" ]] to check for an unset var wont cause script to fail
+#
+# set -E # Error traps inherited by functions
+#
+# set -C  Disallow existing regular files to be overwritten by redirection of output.
+#
+
+
+
+
+
+
+
+
+

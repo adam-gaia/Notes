@@ -1,0 +1,7 @@
+#!/bin/bash
+# Sed notes
+
+# Replace everything before and including match
+echo "asdf-hello world" | sed 's/.*-//' # Replace everything up to and including the '-'
+
+
