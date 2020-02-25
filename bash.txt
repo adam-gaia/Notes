@@ -111,7 +111,7 @@ echo "error" 1>&2 # Send stdout to stderr
 echo "asdf" file.txt # Redirect stderr and stdout to file
 echo "asdf" 2> error.log # Redirect stderr to file
 echo "asdf" |& tee log.txt # Send stdout and stderr to both console and file
-
+echo "asdf" > /dev/null 2>&1 # No stdout by directing to /dev/null. Then send stderr to /dev/null too
 
 
 
