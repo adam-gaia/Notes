@@ -1,0 +1,3 @@
+# Mac setup
+echo "set startup-with-shell off" >> ~/.gdbinit # needed for SIP
+# https://sourceware.org/gdb/wiki/BuildingOnDarwin # sign gdb
