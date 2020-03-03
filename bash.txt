@@ -114,4 +114,11 @@ echo "asdf" |& tee log.txt # Send stdout and stderr to both console and file
 echo "asdf" > /dev/null 2>&1 # No stdout by directing to /dev/null. Then send stderr to /dev/null too
 
 
+# --------------------------------------------------------------------------------
+# Subshells and chaining logic operation - (commands in parenthesis are called in a subshell)
+# --------------------------------------------------------------------------------
+echo "" && (echo "wont exit" && exit 1) # This wont exit the program. The subshell created by the () will exit
+echo "" || { echo "will exit"; exit 1 } # This will exit the program. The {} are used to chain commands together without creating a subshell
+
+
 
