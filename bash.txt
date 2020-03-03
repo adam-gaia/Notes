@@ -121,4 +121,11 @@ echo "" && (echo "wont exit" && exit 1) # This wont exit the program. The subshe
 echo "" || { echo "will exit"; exit 1 } # This will exit the program. The {} are used to chain commands together without creating a subshell
 
 
+# --------------------------------------------------------------------------------
+# Random Numbers
+# --------------------------------------------------------------------------------
+let exclusiveUpperBound=10
+x=$(( RANDOM % exclusiveUpperBound )) # random num between [0, 10)
+# https://stackoverflow.com/questions/8988824/generating-random-number-between-1-and-10-in-bash-shell-script#8988890
+# TODO: there maybe is a bug where non-interactive subshells source ~/.bash_profile. I need to only source stuff if interactive shell
 
