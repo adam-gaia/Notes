@@ -1,0 +1,6 @@
+" Vim Notes
+
+:mksession    " Save session
+vim -S # open saved session
+
+" :nohl
