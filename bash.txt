@@ -15,6 +15,29 @@ readarray -t array <<<"$input"
 
 
 # --------------------------------------------------------------------------------
+# Switch Case
+# --------------------------------------------------------------------------------
+arg="$1"
+case "$arg" in
+    "1")
+        echo "1"
+        ;;
+    "2"|"3")
+        echo "2 or 3"
+        ;;
+    "4")
+        echo "4"
+        ;& # allow fall through
+    "5")
+        echo "5 or 4 fall through"
+        ;;
+    *) # default
+        echo "Default: $arg was not defined as a specific case"
+        ;;
+esac
+
+
+# --------------------------------------------------------------------------------
 # For each loops
 # --------------------------------------------------------------------------------
 # For each var in array
@@ -128,4 +151,5 @@ let exclusiveUpperBound=10
 x=$(( RANDOM % exclusiveUpperBound )) # random num between [0, 10)
 # https://stackoverflow.com/questions/8988824/generating-random-number-between-1-and-10-in-bash-shell-script#8988890
 # TODO: there maybe is a bug where non-interactive subshells source ~/.bash_profile. I need to only source stuff if interactive shell
+
 
