@@ -6,6 +6,8 @@ vim -S # open saved session
 :nohl " unhighlight search term
 
 
+# Remember to run 'bear <compile command>' when compiling
+    # vim plugin youcompleteme uses bear's output to see how to compile
 
 " Backups
 see second answer:
