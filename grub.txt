@@ -1,0 +1,9 @@
+# -----------
+# Grub
+# -----------
+```sudo <editor> /etc/default/grub```
+	commend out ```GRUB_HIDDEN_TIMEOUT=0```
+	and ```GRUB_TIMEOUT_STYLE=hidden```
+run ```sudo update-grub``` to apply changes
+
+
