@@ -12,3 +12,8 @@ see second answer:
 https://stackoverflow.com/questions/607435/why-does-vim-save-files-with-a-extension
 
 
+" Plug - plugin manager
+" Remember to run :PlugInstall after installing plugins or after initializing a new machine
+
+
+" Use 'Ack <query>' to search in vim. TODO: alias to grep or ctrl-f or something
