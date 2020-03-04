@@ -3,4 +3,12 @@
 :mksession    " Save session
 vim -S # open saved session
 
-" :nohl
+:nohl " unhighlight search term
+
+
+
+" Backups
+see second answer:
+https://stackoverflow.com/questions/607435/why-does-vim-save-files-with-a-extension
+
+
