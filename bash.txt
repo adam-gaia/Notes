@@ -153,3 +153,10 @@ x=$(( RANDOM % exclusiveUpperBound )) # random num between [0, 10)
 # TODO: there maybe is a bug where non-interactive subshells source ~/.bash_profile. I need to only source stuff if interactive shell
 
 
+# --------------------------------------------------------------------------------
+# Root check
+# --------------------------------------------------------------------------------
+if [[ $EUID -eq 0 ]]; then
+  echo "You must not be a root user (don't use sudo)"
+  exit 1
+fi
