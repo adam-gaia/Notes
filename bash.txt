@@ -3,7 +3,7 @@
 # TODO: Alphabetize sections. Add table of contents
 
 # --------------------------------------------------------------------------------
-# Variables
+# Variables and arrays
 # --------------------------------------------------------------------------------
 # Save var with special characters
 x=$'asdf\nasdf\n' # '\n' is evaluated as a new line
@@ -12,6 +12,17 @@ x='asdf\nasdf\n'  # '\n' is evaluated literally
 # Split string into array on new line
 input=$'line1\nline2'
 readarray -t array <<<"$input"
+
+# Remove chars from end of string
+string="goodBAD"
+fixed=${string::-3} # remove last 3 chars
+
+# Length of an array
+a=(1 2 3 4)
+len="${#a[@]}"
+
+# Append to array
+a+=(5)
 
 
 # --------------------------------------------------------------------------------
@@ -112,6 +123,16 @@ readInputFromPipe()
         echo -en "${line}"
     done
 }
+
+# Ask user for password
+username=''
+password=''
+printf "Enter username:\n"
+read -r -p "> " username || { echo "Error reading username" && exit 1; }
+printf "Enter password:\n"
+# The -s flag is important for security when entering a password, but not needed when reading username
+read -sr -p "> " password || { echo "Error reading password" && exit 1; }
+echo ""
 
 
 # --------------------------------------------------------------------------------

@@ -1,0 +1,15 @@
+#!/bin/bash
+#Git notes
+
+# Diff between branches
+git diff branch1 branch2 -- path/to/file
+
+# Checkout file from another branch to current branch
+git checkout otherBranch -- fileName
+git checkout remote/otherBranch -- fileName # specify which remote
+
+# Checkout + track remote branch
+git checkout --track origin/someBranch
+
+
+
