@@ -1,0 +1,12 @@
+---------------
+Graphical:
+---------------
+Ubuntu 18.04
+Open 'Disks' app, format usb drive
+Open 'Gparted' app, partition into 2 disks. Set one's flags to boot
+Open 'Startup Disk Creator' app, select OS.iso and usb drive partition mount
+
+---------------
+Command line
+---------------
+TODO
