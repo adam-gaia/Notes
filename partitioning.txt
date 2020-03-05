@@ -1,0 +1,15 @@
+---------------
+Graphical:
+---------------
+Ubuntu 18.04
+Open 'Disks' app, format usb drive
+Open 'Gparted' app, partition into 2 disks. Set one's flags to boot
+Open 'Startup Disk Creator' app, select OS.iso and usb drive partition mount
+
+https://askubuntu.com/questions/423300/live-usb-on-a-2-partition-usb-drive
+
+
+---------------
+Command line
+---------------
+TODO

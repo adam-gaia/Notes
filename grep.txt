@@ -1,0 +1,6 @@
+#!/bin/bash
+# Grep notes
+
+# Grep multiple patterns
+grep 'pattern1\|pattern2\|pattern3' fileToSearch
+

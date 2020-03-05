@@ -4,4 +4,5 @@
 # Replace everything before and including match
 echo "asdf-hello world" | sed 's/.*-//' # Replace everything up to and including the '-'
 
-
+# Replace multiple spaces with single space
+sed 's/  */ /g' fileName
