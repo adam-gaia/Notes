@@ -5,3 +5,7 @@ ln -s <takeThisFile> <makeALinkHere>
 
 # Date
 date "+%Y-%m-%d_%H:%M:%S"
+
+# Mv multiple things at once
+mv -t DESTINATION file1 file2 ... # Only works with Gnu mv, not Mac mv
+
