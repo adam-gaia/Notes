@@ -181,3 +181,15 @@ if [[ $EUID -eq 0 ]]; then
   echo "You must not be a root user (don't use sudo)"
   exit 1
 fi
+
+# --------------------------------------------------------------------------------
+# Info on the previous command
+# --------------------------------------------------------------------------------
+echo !! # Last command ran
+echo $? # Return status of last command
+echo $$ # Pid of last command - TODO: verify this!
+
+
+
+
+
