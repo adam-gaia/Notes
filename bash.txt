@@ -24,6 +24,10 @@ len="${#a[@]}"
 # Append to array
 a+=(5)
 
+# Get all values of array after cutoff
+echo "${a[@]:1}" # all but first value
+echo "${a[@]:2}" # third and onward
+
 
 # --------------------------------------------------------------------------------
 # Switch Case
