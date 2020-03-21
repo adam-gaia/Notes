@@ -34,17 +34,17 @@ echo "${a[@]:2}" # third and onward
 # --------------------------------------------------------------------------------
 arg="$1"
 case "$arg" in
-    "1")
-        echo "1"
+    '1')
+        echo '1'
         ;;
-    "2"|"3")
-        echo "2 or 3"
+    '2'|'3')
+        echo '2 or 3'
         ;;
-    "4")
-        echo "4"
+    '4')
+        echo '4'
         ;& # allow fall through
-    "5")
-        echo "5 or 4 fall through"
+    '5')
+        echo '5 or 4 fall through'
         ;;
     *) # default
         echo "Default: $arg was not defined as a specific case"
@@ -195,5 +195,11 @@ echo $$ # Pid of last command - TODO: verify this!
 
 
 
-
-
+# --------------------------------------------------------------------------------
+# Pattern find and replace on a bash var
+# --------------------------------------------------------------------------------
+# Good notes here:
+#   https://www.cyberciti.biz/tips/bash-shell-parameter-substitution-2.html
+#   
+# See second and third answer here. What is a LC_COLLATE?
+#   https://unix.stackexchange.com/questions/245362/remove-numbers-strip-numeric-characters-from-the-string-variable
