@@ -11,7 +11,7 @@ x='asdf\nasdf\n'  # '\n' is evaluated literally
 
 # Split string into array on new line
 input=$'line1\nline2'
-readarray -t array <<<"$input"
+readarray -a array <<<"$input"
 
 # Remove chars from end of string
 string="goodBAD"
@@ -156,7 +156,7 @@ kill %JOBNUM #kill job by number
 # --------------------------------------------------------------------------------
 echo "asdf" 2>&1 # Redirect stderr to stdout
 echo "error" 1>&2 # Send stdout to stderr
-echo "asdf" file.txt # Redirect stderr and stdout to file
+echo "asdf" > file.txt 2>&1 # Redirect both stderr and stdout to file
 echo "asdf" 2> error.log # Redirect stderr to file
 echo "asdf" |& tee log.txt # Send stdout and stderr to both console and file
 echo "asdf" > /dev/null 2>&1 # No stdout by directing to /dev/null. Then send stderr to /dev/null too

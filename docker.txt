@@ -1,4 +1,4 @@
-Setup:
+gSetup:
 Create images from Dockerfile:
 	sudo docker build -t <imageName:tag> <dirWithDockerFile> # The tag is optional
 Run docker image in a container:
