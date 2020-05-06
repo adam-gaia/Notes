@@ -11,5 +11,8 @@ git checkout remote/otherBranch -- fileName # specify which remote
 # Checkout + track remote branch
 git checkout --track origin/someBranch
 
+# Remove remote branch
+git push --delete remote branchName
+
 
 
