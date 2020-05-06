@@ -6,3 +6,7 @@ echo "asdf-hello world" | sed 's/.*-//' # Replace everything up to and including
 
 # Replace multiple spaces with single space
 sed 's/  */ /g' fileName
+
+# Remove trailing whitespace from each line
+sed 's/[[:blank:]]*$//' fileName
+
