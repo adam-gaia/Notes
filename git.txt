@@ -1,8 +1,23 @@
 #!/bin/bash
 #Git notes
 
-# Diff between branches
-git diff branch1 branch2 -- path/to/file
+# ----------------------
+# Searching git
+# ----------------------
+
+# Search current state
+git grep <regexp>
+
+# Search commit history *content*
+git grep <regexp> $(git rev-list --all)
+
+# Search commit logs
+git log --all --grep='expression'
+
+
+# ----------------------
+# Misc.
+# ----------------------
 
 # Checkout file from another branch to current branch
 git checkout otherBranch -- fileName
@@ -14,5 +29,14 @@ git checkout --track origin/someBranch
 # Remove remote branch
 git push --delete remote branchName
 
+# Git worktree vs subtree vs submodule
+# https://www.reddit.com/r/git/comments/4o1s31/eli5_whats_the_difference_between_git_worktree_vs/
 
+
+# ----------------------
+# Git diff
+# ----------------------
+
+# Diff between branches
+git diff branch1 branch2 -- path/to/file
 
