@@ -1,0 +1,61 @@
+== TCP Dump and Wireshark ==
+Ethernet packet capture so we can see what the RealTime actually sends to the card and what the card sends back.
+
+
+=== Install tcpdump on the Robot===
+tcpdump should already be installed on most Linux systems by default. This tool probably isn't in your default $PATH. It is a good bet that <code> sudo tcpdump</code> will work.
+ 
+Should you still need to install the tool on Ubuntu and Debian, run
+
+ sudo apt update && sudo apt install tcpdump
+
+=== Install wireshark on the Deploy Computer===
+
+<code> sudo apt update && sudo apt install wireshark</code>
+
+Select 'no' if prompted to let non-superusers run dumps during the install.
+
+
+=== Collect Ethernet Packets ===
+1. ssh to the robot.
+
+
+2. Find the interface between the robot and its cards by running
+
+<code> ip a</code>
+
+and searching the output for an interface containing
+
+<code> inet 192.168.1.100/24 </code>
+
+This interface is probably <code>enp2s0</code>
+
+
+3. Run tcpdump to collect packets
+
+<code> sudo tcpdump -n -i interfaceName -w outputFile</code>
+
+where <code>interfaceName</code> is the interface between the robot and its cards, and <code>outputFile</code> is the file you want to save to.
+
+
+4. Operate the robot as usual. Perform the action that is causing trouble.
+
+
+5. Back in the terminal window with the ssh connection, end the tcpdump and exit the ssh session.
+
+
+6. Pull the dump file off the robot to the deploy computer
+
+<code> scp robot:path/to/output/file local/path/to/save/file</code>
+
+=== Process the Dump ===
+1. Open the dump file in wireshark
+
+<code>wireshark local/path/to/save/file</code>
+
+2. Consult a firmware engineer (or Trevor or Evan?)  
+
+
+=== More Info ===
+:https://linuxize.com/post/tcpdump-command-in-linux/
+:https://workaround.org/using-tcpdump-and-wireshark/
