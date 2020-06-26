@@ -1,0 +1,6 @@
+# Rust Notes
+
+# Install Rust via Rustup
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+# Add cargo to the path afterwards
+
