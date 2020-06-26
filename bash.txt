@@ -15,7 +15,7 @@ readarray -a array <<<"$input"
 
 # Remove chars from end of string
 string="goodBAD"
-fixed=${string::-3} # remove last 3 chars
+fixed="${string::-3}" # remove last 3 chars
 
 # Length of an array
 a=(1 2 3 4)

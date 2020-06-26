@@ -26,8 +26,11 @@ git checkout remote/otherBranch -- fileName # specify which remote
 # Checkout + track remote branch
 git checkout --track origin/someBranch
 
-# Remove remote branch
+# Delete remote branch
 git push --delete remote branchName
+
+# Delete local branch
+git branch -d branchName
 
 # Git worktree vs subtree vs submodule
 # https://www.reddit.com/r/git/comments/4o1s31/eli5_whats_the_difference_between_git_worktree_vs/
