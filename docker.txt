@@ -1,19 +1,19 @@
-gSetup:
-Create images from Dockerfile:
+# Setup:
+# Create images from Dockerfile:
 	sudo docker build -t <imageName:tag> <dirWithDockerFile> # The tag is optional
-Run docker image in a container:
+# Run docker image in a container:
 	sudo docker run -i -t <imageName:tag> /bin/bash
 
-List stuff:
-Images:
+# List stuff:
+# Images:
 	sudo docker images
-Containers:
+# Containers:
 	sudo docker ps -a   # -f status=exited
 
-Cleanup:
-Remove docker container:
+# Cleanup:
+# Remove docker container:
 	sudo docker rm <containerID> 
-Remove docker image:
+# Remove docker image:
 	sudo docker rmi <imageName:tag>
 
 ##############################################
