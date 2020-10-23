@@ -1,20 +1,20 @@
 # Setup:
 # Create images from Dockerfile:
-	sudo docker build -t <imageName:tag> <dirWithDockerFile> # The tag is optional
+	docker build -t <imageName:tag> <dirWithDockerFile> # The tag is optional
 # Run docker image in a container:
-	sudo docker run -i -t <imageName:tag> /bin/bash
+	docker run -i -t <imageName:tag> /bin/bash
 
 # List stuff:
 # Images:
-	sudo docker images
+	docker images
 # Containers:
-	sudo docker ps -a   # -f status=exited
+	docker ps -a   # -f status=exited
 
 # Cleanup:
 # Remove docker container:
-	sudo docker rm <containerID> 
+	docker rm <containerID> 
 # Remove docker image:
-	sudo docker rmi <imageName:tag>
+	docker rmi <imageName:tag>
 
 ##############################################
 docker run -tid --name debianContainer -v /home/agaia/rtMount:/agaiaMount debian:10.2 # Create container, continuously run in background

@@ -1,0 +1,30 @@
+Dockerfile exceprt:
+
+# <Permission Fix>
+# Files mounted in a docker container are chowned to the the docker user (root by default).
+# We need to create a user, and set its UID+GID to the host user's.
+# 'Run docker build' with these flags:
+#     --build-arg USER_ID=$(id -u ${USER})
+#     --build-arg GROUP_ID=$(id -g ${USER})
+#     --build-arg GROUP_ID=$(whoami)
+# See this: https://jtreminio.com/blog/running-docker-containers-as-current-host-user/
+ARG USER_ID
+ARG GROUP_ID
+ARG USER_NAME
+
+RUN if [ ${USER_ID:-0} -ne 0 ] && [ ${GROUP_ID:-0} -ne 0 ]; then \
+    userdel -f www-data &&\
+    if getent group www-data ; then groupdel www-data; fi &&\
+    groupadd -g ${GROUP_ID} ${USER_NAME} &&\
+    useradd -l --shell /bin/bash -u ${USER_ID} -g ${USER_NAME} ${USER_NAME} &&\
+    install -d -m 0755 -o ${USER_NAME} -g ${USER_NAME} /home/${USER_NAME} &&\
+    mkdir -p "/home/www-data/binary_sync" &&\
+    mkdir -p "/home/www-data/.config/syncthing" &&\
+    chown --changes --silent --no-dereference --recursive \
+        ${USER_ID}:${GROUP_ID} \
+        /home/${USER_NAME} \
+;fi
+
+USER ${USER_NAME}
+# </Permission Fix>
+
