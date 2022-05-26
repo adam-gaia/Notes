@@ -9,3 +9,6 @@ date "+%Y-%m-%d_%H:%M:%S"
 # Mv multiple things at once
 mv -t DESTINATION file1 file2 ... # Only works with Gnu mv, not Mac mv
 
+
+# Count the number of lines of all py files in a repo
+fd '.py' --exec wc -l {} | awk '{ print $1 }' | paste -sd+ |bc
